@@ -30,7 +30,7 @@ async function scrapVehicles() {
   await vehiclesLi.click();
 
   const showMoreButton = await page.waitForSelector(".show_more")
-  const showMoreContainer = await page.waitForSelector(".show_more_container")
+  const showMoreContainer = await page.waitForSelector(".show_more_container") // Se pone en display none cuando no quedan más elementos
 
 
   // await browser.close()
