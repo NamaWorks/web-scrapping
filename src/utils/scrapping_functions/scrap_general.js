@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs")
 
-async function scrapVehicles() {
+async function scrapGeneral(category) {
   const url = "https://www.starwars.com/databank";
   const browser = await puppeteer.launch({
     headless: false,
@@ -10,8 +10,8 @@ async function scrapVehicles() {
   });
   const page = await browser.newPage();
   await page.goto(url);
-  const vehiclesLi = await page.waitForSelector("[data-title='Vehicles']");
-  await vehiclesLi.click()
+  const catgoryLi = await page.waitForSelector(`[data-title="${category}"]`);
+  await catgoryLi.click()
   await checkAndGetElements()
   
   async function checkAndGetElements () {
@@ -65,11 +65,11 @@ async function scrapVehicles() {
   
   let jsonElementsArray = JSON.stringify(elementsArray)
   
-    fs.writeFile(`src/utils/json_data/vehicles-data.json`, jsonElementsArray, ()=>{console.log(`data has been writen`)})
+    fs.writeFile(`src/utils/json_data/${category}-data.json`, jsonElementsArray, ()=>{console.log(`data has been writen`)})
   
-    // browser.close()
     const allLi = await page.waitForSelector("[data-title='All']");
     await allLi.click()
+    browser.close()
   
   }
 
@@ -89,4 +89,4 @@ async function scrapVehicles() {
 
 }
 
-module.exports = { scrapVehicles }
+module.exports = { scrapGeneral }
