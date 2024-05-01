@@ -7,9 +7,9 @@ const { scrapGeneral } = require("./scrapping_functions/scrap_general");
 
 const scrapeElements = async () => {
   // scrapVehicles();
-  scrapGeneral("Vehicles")
-  scrapGeneral("Characters")
-  scrapGeneral("Locations")
+  await scrapGeneral("Vehicles")
+  await scrapGeneral("Characters")
+  await scrapGeneral("Locations")
 };
 
 scrapeElements();
