@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "\"# web-scrapping\"",
   "main": "index.js",
-  "scripts": {
+    "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "scrap": "node src/utils/scrapper.js"
+    "scrap": "node src/utils/scrapper.js",
+    "feed": "node src/utils/feeds.js"
   },
   "keywords": [],
   "author": "",

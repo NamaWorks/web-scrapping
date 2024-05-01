@@ -2,4 +2,4 @@ node_modules
 requirements.md\
 .txt
 .env
-json_data
+data

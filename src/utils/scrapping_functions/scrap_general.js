@@ -63,9 +63,9 @@ async function scrapGeneral(category) {
   
     }
   
-  let jsonElementsArray = JSON.stringify(elementsArray)
+  let outputElementsArray = JSON.stringify(elementsArray)
   
-    fs.writeFile(`src/utils/json_data/${category}-data.json`, jsonElementsArray, ()=>{console.log(`data has been writen`)})
+    fs.writeFile(`src/utils/data/${category}-data.json`,outputElementsArray, ()=>{console.log(`data has been writen`)})
   
     const allLi = await page.waitForSelector("[data-title='All']");
     await allLi.click()
